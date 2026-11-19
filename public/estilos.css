@@ -1,0 +1,548 @@
+/* =============================================================
+   ReportaBarrio · Hoja de estilos
+   Paleta de grises sobrios, estilo institucional
+   ============================================================= */
+
+/* ---------- 1. Variables (colores en tres formatos: hex, rgb y hsl) ---------- */
+:root {
+  --gris-900: #1f2328;               /* hexadecimal */
+  --gris-800: #2d333b;
+  --gris-700: #444c56;
+  --gris-600: #57606a;
+  --gris-400: #8c959f;
+  --gris-300: #d0d7de;
+  --gris-200: #e4e7eb;
+  --gris-100: #f1f3f5;
+  --blanco: #ffffff;
+  --sombra: 0 1px 3px rgb(31 35 40 / 14%);   /* rgb */
+  --enfoque: hsl(210, 12%, 45%);              /* hsl */
+  --radio: 6px;
+  --fuente-texto: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --fuente-titulos: Georgia, "Times New Roman", serif;
+}
+
+/* ---------- 2. Reinicio y modelo de caja ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* el ancho incluye padding y borde */
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente-texto);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--gris-900);
+  background-color: var(--blanco);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ---------- 3. Tipografía ---------- */
+h1,
+h2,
+h3 {
+  font-family: var(--fuente-titulos);
+  line-height: 1.25;
+  color: var(--gris-900);
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+}
+
+h2 {
+  margin: 2rem 0 0.75rem;
+  font-size: 1.5rem;
+}
+
+h3 {
+  margin: 0.75rem 0 0.5rem;
+  font-size: 1.15rem;
+}
+
+p {
+  margin: 0 0 1rem;
+  max-width: 70ch;
+}
+
+a {
+  color: var(--gris-800);
+}
+
+a:hover {
+  color: var(--gris-600);
+}
+
+code {
+  padding: 0.1rem 0.35rem;
+  background-color: var(--gris-200);
+  border-radius: 3px;
+  font-size: 0.9em;
+  overflow-wrap: anywhere;
+}
+
+/* Enfoque visible para quien navega con teclado */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--enfoque);
+  outline-offset: 2px;
+}
+
+/* ---------- 4. Enlace para saltar al contenido ---------- */
+.saltar-contenido {
+  position: absolute;
+  left: -999px;
+  padding: 0.5rem 1rem;
+  background-color: var(--blanco);
+  color: var(--gris-900);
+}
+
+.saltar-contenido:focus {
+  left: 0.5rem;
+  top: 0.5rem;
+  z-index: 10;
+}
+
+/* ---------- 5. Encabezado con Flexbox (logo a un lado, menú al otro) ---------- */
+.cabecera {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem max(1.25rem, calc((100% - 1100px) / 2));
+  background-color: var(--gris-900);
+  color: var(--blanco);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--fuente-titulos);
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--blanco);
+  text-decoration: none;
+}
+
+.menu {
+  display: flex;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 0.45rem 0.9rem;
+  border-bottom: 2px solid transparent;
+  color: var(--gris-200);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  color: var(--blanco);
+  border-bottom-color: var(--gris-400);
+}
+
+.menu a[aria-current="page"] {
+  color: var(--blanco);
+  border-bottom-color: var(--blanco);
+}
+
+/* ---------- 6. Estructura de página (contenido principal + lateral) ---------- */
+.diseno {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 1.25rem;
+}
+
+/* Selector de ID: el contenido principal */
+#contenido-principal {
+  min-width: 0;
+}
+
+.lateral {
+  align-self: start;
+  padding: 1.25rem;
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  background-color: var(--gris-100);
+}
+
+.lateral h2 {
+  margin-top: 0;
+  font-size: 1.15rem;
+}
+
+.lateral p,
+.lateral ul,
+.lateral ol {
+  margin-bottom: 0.75rem;
+}
+
+/* ---------- 7. Portada de la página de inicio ---------- */
+.hero {
+  margin-bottom: 1rem;
+  padding: 2rem;
+  border-left: 6px solid var(--gris-800);
+  background-color: var(--gris-100);
+}
+
+.acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0;
+}
+
+/* ---------- 8. Botones ---------- */
+.boton {
+  display: inline-block;
+  padding: 0.65rem 1.25rem;
+  border: 2px solid var(--gris-900);
+  border-radius: var(--radio);
+  background-color: var(--gris-900);
+  color: var(--blanco);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.boton:hover {
+  background-color: var(--gris-700);
+  border-color: var(--gris-700);
+  color: var(--blanco);
+}
+
+.boton-secundario {
+  background-color: transparent;
+  color: var(--gris-900);
+}
+
+.boton-secundario:hover {
+  background-color: var(--gris-200);
+  border-color: var(--gris-900);
+  color: var(--gris-900);
+}
+
+/* ---------- 9. Formularios ---------- */
+.formulario,
+.filtros {
+  padding: 1.5rem;
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  background-color: var(--blanco);
+  box-shadow: var(--sombra);
+}
+
+.campo {
+  margin: 0 0 1.25rem;
+  padding: 0;
+  border: 0;
+}
+
+label,
+legend {
+  display: block;
+  margin-bottom: 0.35rem;
+  padding: 0;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--gris-400);
+  border-radius: var(--radio);
+  background-color: var(--blanco);
+  color: var(--gris-900);
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.ayuda {
+  margin: 0.35rem 0 0;
+  color: var(--gris-600);
+  font-size: 0.9rem;
+}
+
+.opciones-radio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.opciones-radio div {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.opciones-radio label {
+  margin: 0;
+  font-weight: 400;
+}
+
+/* Filtros del listado */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 1rem;
+  background-color: var(--gris-100);
+}
+
+.filtros .campo {
+  flex: 1 1 200px;
+  margin: 0;
+}
+
+.filtros-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+/* ---------- 10. Tarjetas con CSS Grid ---------- */
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.25rem;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  padding: 1.1rem;
+  border: 1px solid var(--gris-300);
+  border-radius: var(--radio);
+  background-color: var(--blanco);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta h3 {
+  margin-top: 0.85rem;
+}
+
+.tarjeta p {
+  margin-bottom: 0.6rem;
+  overflow-wrap: anywhere;
+}
+
+.tarjeta-cabecera,
+.tarjeta-pie {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.tarjeta-barrio {
+  color: var(--gris-600);
+  font-size: 0.95rem;
+}
+
+.tarjeta-pie {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--gris-200);
+  color: var(--gris-600);
+  font-size: 0.9rem;
+}
+
+/* ---------- 11. Etiquetas de categoría, urgencia y estado ---------- */
+/* La información no depende solo del color: cambian el fondo, el borde y el texto */
+.etiqueta {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--gris-400);
+  border-radius: 999px;
+  background-color: var(--blanco);
+  color: var(--gris-800);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.etiqueta-categoria {
+  background-color: var(--gris-100);
+}
+
+.urgencia-baja {
+  background-color: var(--blanco);
+}
+
+.urgencia-media {
+  background-color: var(--gris-300);
+  border-color: var(--gris-600);
+}
+
+.urgencia-alta {
+  background-color: var(--gris-900);
+  border-color: var(--gris-900);
+  color: var(--blanco);
+}
+
+.estado-pendiente {
+  border-style: dashed;
+}
+
+.estado-proceso {
+  background-color: var(--gris-200);
+}
+
+.estado-resuelto {
+  background-color: var(--gris-700);
+  border-color: var(--gris-700);
+  color: var(--blanco);
+}
+
+/* ---------- 12. Mensajes ---------- */
+.conteo {
+  color: var(--gris-600);
+}
+
+.mensaje-vacio,
+.mensaje-error {
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--gris-300);
+  border-left: 6px solid var(--gris-800);
+  border-radius: var(--radio);
+  background-color: var(--gris-100);
+}
+
+.mensaje-error p {
+  margin-bottom: 0.5rem;
+}
+
+.mensaje-error ul {
+  margin: 0;
+}
+
+/* ---------- 13. Estadísticas ---------- */
+.tabla-estadistica {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.tabla-estadistica caption {
+  padding-bottom: 0.5rem;
+  color: var(--gris-600);
+  text-align: left;
+}
+
+.tabla-estadistica th,
+.tabla-estadistica td {
+  padding: 0.6rem 0.75rem;
+  border-bottom: 1px solid var(--gris-300);
+  text-align: left;
+}
+
+.tabla-estadistica thead th {
+  background-color: var(--gris-100);
+}
+
+.tabla-estadistica tbody th {
+  font-weight: 600;
+}
+
+.barra {
+  display: block;
+  min-width: 80px;
+  height: 0.7rem;
+  border-radius: 999px;
+  background-color: var(--gris-200);
+  overflow: hidden;
+}
+
+.barra span {
+  display: block;
+  height: 100%;
+  background-color: var(--gris-700);
+}
+
+/* ---------- 14. Pie de página ---------- */
+.pie {
+  padding: 1.5rem max(1.25rem, calc((100% - 1100px) / 2));
+  background-color: var(--gris-800);
+  color: var(--gris-200);
+  font-size: 0.9rem;
+}
+
+.pie p {
+  margin: 0;
+  max-width: none;
+}
+
+/* ---------- 15. Media queries ---------- */
+/* Escritorio: el lateral pasa a la derecha del contenido */
+@media (min-width: 900px) {
+  .diseno {
+    grid-template-columns: minmax(0, 2fr) minmax(240px, 1fr);
+  }
+}
+
+/* Móvil: cuadrícula de una columna y menú reorganizado debajo del logo */
+@media (max-width: 600px) {
+  .cabecera {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu {
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 0;
+  }
+
+  .menu a {
+    padding: 0.4rem 0.7rem 0.4rem 0;
+  }
+
+  .tarjetas {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 1.25rem;
+  }
+
+  .formulario,
+  .filtros {
+    padding: 1rem;
+  }
+
+  .boton {
+    width: 100%;
+    text-align: center;
+  }
+
+  .acciones,
+  .filtros-acciones {
+    width: 100%;
+  }
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reportar – ReportaBarrio</title>
+  <link rel="icon" href="/img/logo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/estilos.css">
+</head>
+<body>
+  <a class="saltar-contenido" href="#contenido-principal">Saltar al contenido</a>
+
+  <header class="cabecera">
+    <a class="logo" href="/">
+      <img src="/img/logo.svg" alt="" width="32" height="32">
+      <span>ReportaBarrio</span>
+    </a>
+    <nav aria-label="Menú principal">
+      <ul class="menu">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/reportar.html" aria-current="page">Reportar</a></li>
+        <li><a href="/reportes">Reportes</a></li>
+        <li><a href="/estadisticas">Estadísticas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="diseno">
+    <main id="contenido-principal">
+      <section aria-labelledby="titulo-reportar">
+        <h1 id="titulo-reportar">Reportar un problema</h1>
+        <p>Completa todos los campos. Al enviar, verás tu reporte en el listado.</p>
+
+        <form class="formulario" action="/reportes" method="post">
+          <div class="campo">
+            <label for="titulo">Título del problema</label>
+            <input type="text" id="titulo" name="titulo" maxlength="100" placeholder="Ej.: Hueco grande en la calle principal" required>
+          </div>
+
+          <div class="campo">
+            <label for="categoria">Categoría</label>
+            <select id="categoria" name="categoria" required>
+              <option value="">Selecciona una categoría</option>
+              <option value="vias">Vías y huecos</option>
+              <option value="alumbrado">Alumbrado público</option>
+              <option value="residuos">Residuos y basuras</option>
+              <option value="agua">Agua y alcantarillado</option>
+              <option value="espacio">Espacio público y zonas verdes</option>
+              <option value="seguridad">Seguridad vial</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="barrio">Barrio</label>
+            <select id="barrio" name="barrio" required>
+              <option value="">Selecciona un barrio</option>
+              <option value="Centro">Centro</option>
+              <option value="El Prado">El Prado</option>
+              <option value="Alto Prado">Alto Prado</option>
+              <option value="Boston">Boston</option>
+              <option value="Barrio Abajo">Barrio Abajo</option>
+              <option value="Rebolo">Rebolo</option>
+              <option value="Ciudad Jardín">Ciudad Jardín</option>
+              <option value="Riomar">Riomar</option>
+              <option value="Las Nieves">Las Nieves</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <label for="descripcion">Descripción</label>
+            <textarea id="descripcion" name="descripcion" rows="5" maxlength="500" placeholder="Indica dónde está el problema y desde cuándo ocurre" required></textarea>
+          </div>
+
+          <fieldset class="campo grupo-radio">
+            <legend>Urgencia</legend>
+            <div class="opciones-radio">
+              <div>
+                <input type="radio" id="urgencia-baja" name="urgencia" value="baja" required>
+                <label for="urgencia-baja">Baja</label>
+              </div>
+              <div>
+                <input type="radio" id="urgencia-media" name="urgencia" value="media" required>
+                <label for="urgencia-media">Media</label>
+              </div>
+              <div>
+                <input type="radio" id="urgencia-alta" name="urgencia" value="alta" required>
+                <label for="urgencia-alta">Alta</label>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="campo">
+            <label for="contacto">Correo de contacto</label>
+            <input type="email" id="contacto" name="contacto" autocomplete="email" placeholder="nombre@correo.com" required>
+            <p class="ayuda">No se muestra públicamente en el listado.</p>
+          </div>
+
+          <button class="boton" type="submit">Enviar reporte</button>
+        </form>
+      </section>
+    </main>
+
+    <aside class="lateral">
+      <h2>Para un buen reporte</h2>
+      <ul>
+        <li>Indica una dirección o un punto de referencia.</li>
+        <li>Describe qué pasa y desde cuándo.</li>
+        <li>Elige urgencia alta solo si hay riesgo para las personas.</li>
+      </ul>
+    </aside>
+  </div>
+
+  <footer class="pie">
+    <p>ReportaBarrio, proyecto de aula de Tecnologías Web. Universidad Simón Bolívar. ODS 11: Ciudades y comunidades sostenibles.</p>
+  </footer>
+</body>
+</html>
