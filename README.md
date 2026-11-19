@@ -5,8 +5,8 @@ Plataforma ciudadana para reportar problemas del barrio. Proyecto de aula de **T
 ## Integrantes
 
 - Juan Camilo Alvarez España
-- [Nombre del integrante 2]
-- [Nombre del integrante 3, si aplica]
+- Dainer David Barrios Charris
+  
 
 ## Descripción
 
@@ -88,7 +88,6 @@ Las vistas Reportes y Estadísticas las genera el servidor con template strings,
 - Todo el texto que escribe el usuario se escapa antes de mostrarse, para que no se interprete como HTML.
 - La lista de barrios está en `index.js` (constante `BARRIOS`) y en `public/reportar.html`; si se cambia, hay que cambiarla en ambos.
 
-## Enlaces
 
-- Video de sustentación: [pegar aquí el enlace]
-- Repositorio en GitHub (opcional): [pegar aquí el enlace]
+
+
